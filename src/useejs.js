@@ -10,26 +10,26 @@ app.set('view engin','ejs')
 // app.set('views','opencode')
 
 app.get('/', (req,res)=>{
-    res.render('index.ejs')
+    res.render('index.ejs',{title : "MyHome"})
 })
 
 app.get('/about', (req,res)=>{
-    res.render('about.ejs')
+    res.render('about.ejs',{title : "About Page"})
 })
 
 app.get('/create', (req,res)=>{
-    res.render('create.ejs')
+    res.render('create.ejs',{title : "Create"})
 })
 
 //redirect
 app.get('/about-me', (req,res)=>{
-    res.redirect("/about.ejs")
+    res.redirect("/about.ejs",{title : "about me"})
 })
 
 
 //404 page 
 app.use((req,res)=>{
-    res.status(404).render('404.ejs')
+    res.status(404).render('404.ejs',{title : "Not Found"})
 
 })
 
