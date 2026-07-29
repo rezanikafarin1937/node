@@ -5,7 +5,7 @@ const server = http.createServer((req, res) => {
   console.log("create the server");
   console.log(req.url, req.method);
   res.setHeader("Content-Type", "text/html");
-  let path = "./src/files/";
+  let path = "./src/views/";
   switch (req.url) {
     case "/": {
       path += "index.html";
@@ -22,14 +22,15 @@ const server = http.createServer((req, res) => {
       res.statusCode = 200;
       break;
     }
-    case "/about-us": {
-      path += "about.html";
-      res.statusCode = 200;
+    case "/about-me": {
+      res.setHeader("Location", "/about");
+      res.statusCode = 301;
+      res.end();
       break;
     }
     default: {
       path += "404.html";
-      res.statusCode = 400;
+      res.statusCode = 404;
       break;
     }
   }
