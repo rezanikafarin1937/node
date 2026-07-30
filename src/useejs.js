@@ -9,8 +9,14 @@ app.set('view engin','ejs')
 // for change views
 // app.set('views','opencode')
 
+const users = [
+    {id : 1,name : "ali",age : 23},
+    {id : 2,name : "reza",age : 28},
+    {id : 3,name : "hamed",age : 30},
+]
+
 app.get('/', (req,res)=>{
-    res.render('index.ejs',{title : "MyHome"})
+    res.render('index.ejs',{title : "MyHome",users})
 })
 
 app.get('/about', (req,res)=>{
