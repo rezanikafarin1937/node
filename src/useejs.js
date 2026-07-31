@@ -1,10 +1,20 @@
 const express = require('express')
 const app = express()
 
-app.listen(8000)
-
 //Register
 app.set('view engin','ejs')
+
+app.listen(8000)
+
+app.use((req,res,next)=>{
+    console.log('New Requese was made')
+    console.log('Host = ',req.hostname)
+    console.log('Path = ',req.path)
+    console.log('Method = ',req.method)
+    console.log("\n")
+    next()
+})
+
 
 // for change views
 // app.set('views','opencode')
