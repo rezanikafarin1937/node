@@ -1,14 +1,4 @@
-const mysql = require("mysql2");
-
-const pool = mysql
-  .createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "sefaresh",
-  })
-  .promise();
-
+const pool = require('../utilities/mysql_database.js')
 
 
 /* read all data */  
