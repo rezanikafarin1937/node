@@ -4,6 +4,9 @@ const app = express()
 //Register
 app.set('view engin','ejs')
 
+app.use(express.static('public'))
+
+
 app.listen(8000)
 
 app.use((req,res,next)=>{

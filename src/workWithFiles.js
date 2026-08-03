@@ -15,11 +15,14 @@ const fs = require("fs");
 //   });
 // });
 
+
+// dekete file
 // fs.unlink('./src/myfiles/.txt',(err)=>{
 //     if(err)
 //         console.log(err)
 //     console.log('delete file')
 // })
+
 
 // fs.rmdir("./src/myfiles/MyTest", (err) => {
 //   if (err) {
@@ -28,6 +31,8 @@ const fs = require("fs");
 //   }
 //   console.log("delete directory");
 // });
+
+
 
 const readStream = fs.createReadStream('./src/app.txt',{encoding : 'utf-8'});
 const writeStream = fs.createWriteStream('./src/app2.txt',{encoding:'utf-8'});
