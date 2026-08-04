@@ -1,29 +1,19 @@
-const path = require("path");
 const express = require('express')
 const router = express.Router()
+const PagesController = require('../../src/controller/pagesController')
 
 
-console.log(__dirname);
-console.log(path.join(__dirname, "../views/index.html"));
+// console.log(__dirname);
+// console.log(path.join(__dirname, "../views/index.html"));
 
+router.get('/',  PagesController.home)
 
-router.get('/', (req,res)=>{
-    res.sendFile(path.join(__dirname, "../views/index.html"));
-})
+router.get('/about',PagesController.about )
 
-router.get('/about', (req,res)=>{
-     res.sendFile(path.join(__dirname, "../views/about.html"));
-})
-
-router.get('/create', (req,res)=>{
-     res.sendFile(path.join(__dirname, "../views/create.html"));
-})
+router.get('/create',PagesController.create )
 
 //redirect
-router.get('/about-me', (req,res)=>{
-    res.redirect("/about")
-})
-
+router.get('/about-me', PagesController.aboutMe)
 
 //404 page 
 router.use((req,res)=>{

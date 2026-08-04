@@ -1,10 +1,17 @@
 const express = require('express')
 const app = express()
+const EjsRoutes = require('./routes/EjsRoutes')
 
 //Register
 app.set('view engin','ejs')
 
 app.use(express.static('public'))
+
+// for change views
+// app.set('views','./opencode')
+
+
+app.use("/",EjsRoutes)
 
 
 app.listen(8000)
@@ -19,36 +26,6 @@ app.use((req,res,next)=>{
 })
 
 
-// for change views
-// app.set('views','opencode')
-
-const users = [
-    {id : 1,name : "ali",age : 23},
-    {id : 2,name : "reza",age : 28},
-    {id : 3,name : "hamed",age : 30},
-]
-
-app.get('/', (req,res)=>{
-    res.render('index.ejs',{title : "MyHome",users})
-})
-
-app.get('/about', (req,res)=>{
-    res.render('about.ejs',{title : "About Page"})
-})
-
-app.get('/create', (req,res)=>{
-    res.render('create.ejs',{title : "Create"})
-})
-
-//redirect
-app.get('/about-me', (req,res)=>{
-    res.redirect("/about.ejs",{title : "about me"})
-})
 
 
-//404 page 
-app.use((req,res)=>{
-    res.status(404).render('404.ejs',{title : "Not Found"})
-
-})
 
